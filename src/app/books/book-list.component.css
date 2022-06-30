@@ -1,0 +1,8 @@
+#bookList {
+    display: flex;
+    flex-wrap: wrap;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+}

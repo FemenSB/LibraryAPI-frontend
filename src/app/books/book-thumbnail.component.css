@@ -1,0 +1,19 @@
+p {
+    margin: 0px 5px 10px 5px;
+    padding: 0px;
+    text-align: center;
+}
+
+.bookDiv {
+    width: 200px;
+    height: 266px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
