@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BookThumbnailComponent } from './books/book-thumbnail.component';
 import { StarsRating } from './books/stars-rating/stars.component';
 import { BookList } from './books/book-list.component';
+import { MainList } from './books/main-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,11 @@ import { BookList } from './books/book-list.component';
     BookThumbnailComponent,
     StarsRating,
     BookList,
+    MainList,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+<div id="main-list-div">
+    <header>
+        <p>Search:</p>
+        <input type="text" [(ngModel)]="filter" placeholder="book title">
+    </header>
+    <app-book-list listWidth="450" listHeight="562" [books]="filteredBooks"></app-book-list>
+</div>
