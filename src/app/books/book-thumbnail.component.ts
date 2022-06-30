@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Book } from './book';
 
 @Component({
@@ -9,13 +9,8 @@ import { Book } from './book';
 
 export class BookThumbnailComponent implements OnInit {
 
-    book: Book = {
-        id: 1,
-        author: 'Lovecraft',
-        rating: 3.25,
-        releaseDate: '01/01/0001',
-        title: 'At the Mountains of Madness',
-    };
+    @Input()
+    book : Book;
 
     ngOnInit(): void {
 
