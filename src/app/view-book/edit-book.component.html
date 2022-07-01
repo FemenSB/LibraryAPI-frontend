@@ -1,0 +1,14 @@
+<form #bookForm="ngForm">
+    <div class="field-title">
+        <p>Book title</p>
+        <input [(ngModel)]="book.title" required name="title" #title="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-title">
+    </div>
+    <div class="field-title">
+        <p>Book author</p>
+        <input [(ngModel)]="book.author" required name="author" #author="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-author">
+    </div>
+    <div class="field-title">
+        <p>Book rating</p>
+        <input [(ngModel)]="book.rating" required name="rating" #rating="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-rating">
+    </div>
+</form>

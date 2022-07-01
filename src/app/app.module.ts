@@ -13,6 +13,7 @@ import { Status404 } from './status-404.component';
 import { NavBar } from './nav-bar.component';
 import { ViewBook } from './view-book/view-book.component';
 import { AddBook } from './addBook/add-book.component';
+import { EditBook } from './view-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AddBook } from './addBook/add-book.component';
     NavBar,
     ViewBook,
     AddBook,
+    EditBook,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,9 @@ import { AddBook } from './addBook/add-book.component';
       },
       {
         path: 'books/:id', component: ViewBook
+      },
+      {
+        path: 'books/edit/:id', component: EditBook
       },
       {
         path: 'add', component: AddBook

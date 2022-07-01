@@ -6,6 +6,7 @@
         <p class="property-name">Release date: <span class="property-value">{{ book.releaseDate | date: 'MM/dd/yyyy'}}</span></p>
         <p class="property-name">Rating: <span class="property-value">{{ book.rating }} / 5</span></p>
         <app-stars [rating]="book.rating"></app-stars>
+        <a [routerLink]="['/books/edit', book.id]" class="button"> edit book info </a>
     </div>
 
     <div id="picture">
