@@ -11,6 +11,8 @@ import { BookList } from './books/book-list.component';
 import { MainList } from './books/main-list.component';
 import { Status404 } from './status-404.component';
 import { NavBar } from './nav-bar.component';
+import { ViewBook } from './view-book/view-book.component';
+import { AddBook } from './addBook/add-book.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +23,24 @@ import { NavBar } from './nav-bar.component';
     MainList,
     Status404,
     NavBar,
+    ViewBook,
+    AddBook,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
       {
-        path: '', redirectTo: 'books', pathMatch: 'full'
+        path: 'books', component: MainList
       },
       {
-        path: 'books', component: MainList
+        path: 'books/:id', component: ViewBook
+      },
+      {
+        path: 'add', component: AddBook
+      },
+      {
+        path: '', redirectTo: 'books', pathMatch: 'full'
       },
       {
         path: '**', component: Status404

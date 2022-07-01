@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import { CompileSummaryKind } from "@angular/compiler";
+import { Component, Input, OnInit } from "@angular/core";
 import { Book } from './book';
 import { BookService } from "./book.service";
 
@@ -8,11 +9,20 @@ import { BookService } from "./book.service";
     styleUrls: ['./book-list.component.css'],
 })
 
-export class BookList {
+export class BookList implements OnInit{
     @Input()
-    listWidth : number;
+    columns : number;
     @Input()
-    listHeight : number;
+    rows : number;
     @Input()
     books : Book[];
+
+    listWidth : number;
+    listHeight : number;
+
+    ngOnInit() {
+        this.listWidth = (this.columns * 220) + 10;
+        this.listHeight = (this.rows * 276) + 10;
+    }
+
 }

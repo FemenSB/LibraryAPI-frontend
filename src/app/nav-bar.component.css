@@ -16,6 +16,10 @@ p {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 .flex-item {
     flex-basis: 100px;
     height: 100%;
@@ -30,6 +34,16 @@ p {
 
 .grow-1 {
     flex-grow: 1;
+}
+
+.active {
+    border-color: black;
+    background-color: lightgrey;
+}
+
+.active > p {
+    color: black;
+    font-weight: bold;
 }
 
 #app-title {

@@ -5,6 +5,8 @@ p {
     position: absolute;
     left: 0px;
     top: 0px;
+
+    color: orange;
 }
 
 .ratingFrame {
@@ -27,5 +29,5 @@ p {
 }
 
 .empty-stars {
-    color: lightgray;
+    color: gray;
 }

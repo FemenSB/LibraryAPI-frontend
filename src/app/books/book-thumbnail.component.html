@@ -1,5 +1,5 @@
-<div class="bookDiv">
+<a [routerLink]="['/books', book.id]" class="bookDiv">
     <p class="title"> {{ book.title }} </p>
     <p class="author"> {{ book.author }} </p>
     <app-stars [rating]="book.rating"></app-stars>
-</div>
+</a>
