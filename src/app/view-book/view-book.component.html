@@ -1,1 +1,15 @@
-<h1>Book id: {{ courseId }}</h1>
+<section>
+
+    <div id="book-info">
+        <p id="book-title">{{ book.title }}</p>
+        <p class="property-name">Author: <span class="property-value">{{ book.author }}</span></p>
+        <p class="property-name">Release date: <span class="property-value">{{ book.releaseDate | date: 'MM/dd/yyyy'}}</span></p>
+        <p class="property-name">Rating: <span class="property-value">{{ book.rating }} / 5</span></p>
+        <app-stars [rating]="book.rating"></app-stars>
+    </div>
+
+    <div id="picture">
+        <p>To do: book cover image</p>
+    </div>
+
+</section>
