@@ -11,4 +11,7 @@
         <p>Book rating</p>
         <input [(ngModel)]="book.rating" required name="rating" #rating="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-rating">
     </div>
+
+    <button [disabled]="bookForm.invalid" (click)="save()" [routerLink]="['/books', book.id]" id="saveButton">Save changes</button>
+    <button [routerLink]="['/books', book.id]" id="returnButton">Discard changes</button>
 </form>

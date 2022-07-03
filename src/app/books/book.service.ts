@@ -7,17 +7,30 @@ import { Injectable } from "@angular/core";
 
 export class BookService {
 
+    private cloneBook(book : Book) : Book {
+        let newBook : Book = new Book();
+        for(let property in book) {
+            newBook[property] = book[property];
+        }
+
+        return newBook;
+    }
+
     retrieveAll() : Book[] {
-        return BOOKS;
+        return BOOKS.map(this.cloneBook);
     }
 
     retrieveById(id : number) {
-        return BOOKS.find((book : Book) => book.id === id);
+        return this.cloneBook(BOOKS.find((book : Book) => book.id === id));
+    }
+
+    saveBook(editedBook : Book) {
+        BOOKS[BOOKS.findIndex((book : Book) => book.id === editedBook.id)] = editedBook;
     }
 
 }
 
-const BOOKS : Book[] = [
+let BOOKS : Book[] = [
     {
         id: 2,
         author: 'George R. R. Martin',

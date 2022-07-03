@@ -15,6 +15,10 @@ export class EditBook implements OnInit{
     
     book : Book;
 
+    save() : void {
+        this.bookService.saveBook(this.book);
+    }
+
     ngOnInit(): void {
         this.book = this.bookService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id'));
     }

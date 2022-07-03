@@ -21,3 +21,11 @@ input {
 .ng-invalid {
     border-color: red;
 }
+
+#saveButton {
+    color: lightseagreen;
+}
+
+#returnButton {
+    color: lightcoral;
+}
