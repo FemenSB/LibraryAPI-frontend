@@ -19,5 +19,7 @@
     
         <button [disabled]="bookForm.invalid" (click)="save()" [routerLink]="['/books', book.id]" id="saveButton">Save changes</button>
         <button [routerLink]="['/books', book.id]" id="returnButton">Discard changes</button>
+        <br><br><br>
+        <button [routerLink]="['/books']" (click)="delete()" routerLink="['/books']" id="deleteButton">Delete book</button>
     </form>
 </div>

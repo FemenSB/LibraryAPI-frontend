@@ -26,6 +26,17 @@ export class EditBook implements OnInit{
         });
     }
 
+    delete() : void {
+        this.bookService.deleteBook(this.book).subscribe({
+            next: message => {
+                console.log(message);
+            },
+            error: err => {
+                console.log(err);
+            }
+        });
+    }
+
     getBook() : void {
         this.bookService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
             next: book => {

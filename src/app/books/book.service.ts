@@ -14,15 +14,6 @@ export class BookService {
 
     private apiUrl = 'http://localhost:3000/api/books';
 
-    private cloneBook(book : Book) : Book {
-        let newBook : Book = new Book();
-        for(let property in book) {
-            newBook[property] = book[property];
-        }
-
-        return newBook;
-    }
-
     retrieveAll() : Observable<Book[]> {
         return this.httpClient.get<Book[]>(this.apiUrl);
     }
@@ -36,6 +27,10 @@ export class BookService {
             return this.httpClient.put<Book>(`${this.apiUrl}/${book.id}`, book);
         }
         return this.httpClient.post<Book>(this.apiUrl, book);
+    }
+
+    deleteBook(book : Book) : Observable<any>{
+        return this.httpClient.delete<any>(`${this.apiUrl}/${book.id}`);
     }
 
 }

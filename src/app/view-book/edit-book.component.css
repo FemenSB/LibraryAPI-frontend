@@ -30,6 +30,13 @@ input {
     color: lightcoral;
 }
 
+#deleteButton {
+    background-color: orangered;
+    color: white;
+    border-style: solid;
+    border-color: brown;
+}
+
 #screen {
     width: 100%;
     height: 65vh;
