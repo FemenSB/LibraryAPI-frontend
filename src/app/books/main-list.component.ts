@@ -17,9 +17,20 @@ export class MainList implements OnInit{
 
     constructor(private bookService : BookService) { }
 
+    getBooks() : void {
+        this.bookService.retrieveAll().subscribe({
+            next: books => {
+                this._allBooks = books;
+                this.filteredBooks = this._allBooks;
+            },
+            error: err => {
+                console.log(err);
+            }
+        });
+    }
+
     ngOnInit(): void {
-        this._allBooks = this.bookService.retrieveAll();
-        this.filteredBooks = this._allBooks;
+        this.getBooks();
     }
 
     set filter(value : string) {

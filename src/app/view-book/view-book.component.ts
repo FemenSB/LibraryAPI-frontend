@@ -16,7 +16,18 @@ export class ViewBook implements OnInit{
                 private bookService : BookService) { }
 
     
+    getBook() : void {
+        this.bookService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
+            next: book => {
+                this.book = book;
+            },
+            error: err => {
+                console.log(err);
+            }
+        });
+    }
+
     ngOnInit(): void {
-        this.book = this.bookService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id'));
+        this.getBook();
     }
 }

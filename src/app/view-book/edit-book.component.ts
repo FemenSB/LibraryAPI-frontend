@@ -16,10 +16,28 @@ export class EditBook implements OnInit{
     book : Book;
 
     save() : void {
-        this.bookService.saveBook(this.book);
+        this.bookService.saveBook(this.book).subscribe({
+            next: book => {
+                console.log('Changes saved.\n' + book);
+            },
+            error: err => {
+                console.log(err);
+            }
+        });
+    }
+
+    getBook() : void {
+        this.bookService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
+            next: book => {
+                this.book = book;
+            },
+            error: err => {
+                console.log(err);
+            }
+        });
     }
 
     ngOnInit(): void {
-        this.book = this.bookService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id'));
+        this.getBook();
     }
 }

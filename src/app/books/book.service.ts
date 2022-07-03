@@ -1,11 +1,18 @@
-import { Book } from "./book";
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
+import { Book } from "./book";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class BookService {
+
+    constructor(private httpClient : HttpClient) { }
+
+    private apiUrl = 'http://localhost:3000/api/books';
 
     private cloneBook(book : Book) : Book {
         let newBook : Book = new Book();
@@ -16,40 +23,19 @@ export class BookService {
         return newBook;
     }
 
-    retrieveAll() : Book[] {
-        return BOOKS.map(this.cloneBook);
+    retrieveAll() : Observable<Book[]> {
+        return this.httpClient.get<Book[]>(this.apiUrl);
     }
 
-    retrieveById(id : number) {
-        return this.cloneBook(BOOKS.find((book : Book) => book.id === id));
+    retrieveById(id : number) : Observable<Book> {
+        return this.httpClient.get<Book>(`${this.apiUrl}/${id}`);
     }
 
-    saveBook(editedBook : Book) {
-        BOOKS[BOOKS.findIndex((book : Book) => book.id === editedBook.id)] = editedBook;
+    saveBook(book : Book) : Observable<Book> {
+        if(book.id) {
+            return this.httpClient.put<Book>(`${this.apiUrl}/${book.id}`, book);
+        }
+        return this.httpClient.post<Book>(this.apiUrl, book);
     }
 
 }
-
-let BOOKS : Book[] = [
-    {
-        id: 2,
-        author: 'George R. R. Martin',
-        rating: 4.5,
-        releaseDate: new Date('01/01/2001'),
-        title: 'Winds of Winter',
-    },
-    {
-        id: 3,
-        author: 'F. C. Yee',
-        rating: 3.25,
-        releaseDate: new Date('01/02/2001'),
-        title: 'The Dawn of Yangchen',
-    },
-    {
-        id: 1,
-        author: 'H. P. Lovecraft',
-        rating: 5,
-        releaseDate: new Date('01/03/2001'),
-        title: 'At the Mountains of Madness',
-    },
-];
