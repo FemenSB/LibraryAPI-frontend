@@ -7,6 +7,8 @@
         <p class="property-name">Rating: <span class="property-value">{{ book.rating }} / 5</span></p>
         <app-stars [rating]="book.rating"></app-stars>
         <a [routerLink]="['/books/edit', book.id]" class="button"> edit book info </a>
+        <br>
+        <a [routerLink]="['/books']" class="button"> Return </a>
     </div>
 
     <div id="picture">

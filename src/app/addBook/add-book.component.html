@@ -1,1 +1,26 @@
-<h1>to do: Add a new book</h1>
+<div id="screen">
+    <form #bookForm="ngForm">
+        <div>
+            <p class="property">Title:</p>
+            <input [(ngModel)]="book.title" required name="title" #title="ngModel" [ngClass]="{'is-invalid': title.invalid}" id="title">
+        </div>
+    
+        <div>
+            <p class="property">Author:</p>
+            <input [(ngModel)]="book.author" required name="author" #author="ngModel" [ngClass]="{'is-invalid': author.invalid}" id="author">
+        </div>
+    
+        <div>
+            <p class="property">Release date:</p>
+            <input [(ngModel)]="book.releaseDate" required #date="ngModel" [ngClass]="{'is-invalid': date.invalid}"  type="date" name="date"/>
+        </div>
+    
+        <div>
+            <p class="property">Rating:</p>
+            <input [(ngModel)]="book.rating" required name="rating" #rating="ngModel" [ngClass]="{'is-invalid': rating.invalid}" id="rating">
+        </div>
+    
+        <button [disabled]="bookForm.invalid" (click)="postBook()" [routerLink]="['/books']" id="saveButton">Save book</button>
+        <button [routerLink]="['/books']" id="returnButton">Return</button>
+    </form>
+</div>

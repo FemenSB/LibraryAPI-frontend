@@ -1,17 +1,23 @@
-<form #bookForm="ngForm">
-    <div class="field-title">
-        <p>Book title</p>
-        <input [(ngModel)]="book.title" required name="title" #title="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-title">
-    </div>
-    <div class="field-title">
-        <p>Book author</p>
-        <input [(ngModel)]="book.author" required name="author" #author="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-author">
-    </div>
-    <div class="field-title">
-        <p>Book rating</p>
-        <input [(ngModel)]="book.rating" required name="rating" #rating="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-rating">
-    </div>
-
-    <button [disabled]="bookForm.invalid" (click)="save()" [routerLink]="['/books', book.id]" id="saveButton">Save changes</button>
-    <button [routerLink]="['/books', book.id]" id="returnButton">Discard changes</button>
-</form>
+<div id="screen">
+    <form #bookForm="ngForm">
+        <div class="field-title">
+            <p>Book title</p>
+            <input [(ngModel)]="book.title" required name="title" #title="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-title">
+        </div>
+        <div class="field-title">
+            <p>Book author</p>
+            <input [(ngModel)]="book.author" required name="author" #author="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-author">
+        </div>
+        <div>
+            <p class="property">Release date</p>
+            <input [(ngModel)]="book.releaseDate" required #date="ngModel" [ngClass]="{'is-invalid': date.invalid}"  type="date" name="date"/>
+        </div>
+        <div class="field-title">
+            <p>Book rating</p>
+            <input [(ngModel)]="book.rating" required name="rating" #rating="ngModel" [ngClass]="{'is-invalid': book-title.invalid}" id="book-rating">
+        </div>
+    
+        <button [disabled]="bookForm.invalid" (click)="save()" [routerLink]="['/books', book.id]" id="saveButton">Save changes</button>
+        <button [routerLink]="['/books', book.id]" id="returnButton">Discard changes</button>
+    </form>
+</div>
